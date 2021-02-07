@@ -1,9 +1,9 @@
 STAT600 - Automated EDA in R
 ================
 
-\#\#Introduction
+## Introduction
 
-After getting some new dataset, doing a proper exploratory data analysis
+After acquiring some new data, doing a proper exploratory data analysis
 (EDA) is a very important part. This help to better understand the
 structure of our data, potential problems and project the steps needed
 to use the particular data set for modelling.
@@ -16,7 +16,7 @@ chunk of the time devoted to the project.
 how to speed up the EDA part.
 
 Today I will present three `R` libraries for automatic EDA -
-`DataExplorer`, `Hmisc`, `dlookr`, `explore`.
+`DataExplorer`, `Hmisc`, `dlookr`.
 
 Notice that there are way more libraries in the field and each is doing
 some different. References for more libraries are given in the end.
@@ -28,9 +28,9 @@ library("dlookr")
 ```
 
 For presentation of function I used two very popular data sets -
-airquality and diamons.
+airquality and diamonds.
 
-\#\#DataExplorer
+## DataExplorer
 
 This package is created by Boxuan Cui. Below are presented three
 functions from DataExplorer package - `introduce()`, `plot_intro()`, and
@@ -58,7 +58,7 @@ DataExplorer::create_report(diamonds, y="price", output_file="DataExplorer_diamo
 Notice, that `create_report()` generates the separate file
 `DataExplorer_diamonds_report.html`.
 
-\#\#Hmisc
+## Hmisc
 
 This package is created by Frank E Harrell Jr, with contributions from
 others. Below is showed one function from `Hmisc` package -
@@ -134,10 +134,10 @@ htmltools::save_html(pp, file="Hmisc_describe_airquality.html")
 
 Results are saved into the file `Hmisc_describe_airquality.html`.
 
-\#\#dlookr
+## dlookr
 
 This package belongs to the tidyverse universe. Here are presented
-function `eda_report()`. The dataset used for a presentation - diamonds.
+function `eda_report()`.
 
 ``` r
 dlookr::eda_report(diamonds, output_format="html",
@@ -146,7 +146,7 @@ dlookr::eda_report(diamonds, output_format="html",
 
 Results are saved into the file `Hmisc_describe_airquality.html`.
 
-\#\#Wrap up
+## Wrap up
 
 If you interested in more packages and their comparison, there are some
 references: - The Landscape of R Packages for Automated Exploratory Data
