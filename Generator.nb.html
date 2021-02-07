@@ -1759,17 +1759,19 @@ summary {
 
 
 <!-- rnb-text-begin -->
-<p>After getting some new dataset, doing a proper exploratory data analysis (EDA) is very important part. This help to better understand the structure of our data, potential problems and project the steps needed to use the particular data set for modelling.</p>
-<p>Most of the data analysts would agree that data preparation (cleaning, putting to the correct format) and exploration of a data set takes big chunk of the time devoted to the project.</p>
-<p>(Un)Fortunately people are lazy, thus some started developing some ways how to spead up the EDA part.</p>
-<p>Here I present 4 R libraries that has some functions for automatic EDA - <code>DataExplorer</code>, <code>Hmisc</code>, <code>dlookr</code>, <code>explore</code>.</p>
+<p>##Introduction</p>
+<p>After getting some new dataset, doing a proper exploratory data analysis (EDA) is a very important part. This help to better understand the structure of our data, potential problems and project the steps needed to use the particular data set for modelling.</p>
+<p>Most of the data analysts would agree that data preparation (cleaning, putting to the correct format) and exploration of a data set takes a big chunk of the time devoted to the project.</p>
+<p>(Un)Fortunately, people are lazy, thus some started developing some ways how to speed up the EDA part.</p>
+<p>Today I will present three <code>R</code> libraries for automatic EDA - <code>DataExplorer</code>, <code>Hmisc</code>, <code>dlookr</code>, <code>explore</code>.</p>
+<p>Notice that there are way more libraries in the field and each is doing some different. References for more libraries are given in the end.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>For each of the package, the data used comes from suggestions of packages itself.</p>
+<p>For presentation of function I used two very popular data sets - airquality and diamons.</p>
 <p>##DataExplorer</p>
-<p>This package is created by Boxuan Cui. Here are showed three functions from DataExplorer package - <code>introduce()</code>, <code>plot_intro()</code>, and <code>create_report()</code>. The datasets used for a presentation - airquality and diamonds.</p>
+<p>This package is created by Boxuan Cui. Below are presented three functions from DataExplorer package - <code>introduce()</code>, <code>plot_intro()</code>, and <code>create_report()</code>.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRGF0YUV4cGxvcmVyOjppbnRyb2R1Y2UoYWlycXVhbGl0eSlcbmBgYCJ9 -->
@@ -1783,16 +1785,40 @@ summary {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuRGF0YUV4cGxvcmVyOjpjcmVhdGVfcmVwb3J0KGRpYW1vbmRzLCB5PVwicHJpY2VcIiwgb3V0cHV0X2ZpbGU9XCJEYXRhRXhwbG9yZXJfZGlhbW9uZHNfcmVwb3J0Lmh0bWxcIilcblxuYGBgIn0= -->
-<pre class="r"><code>DataExplorer::create_report(diamonds, y=&quot;price&quot;, output_file=&quot;DataExplorer_diamonds_report.html&quot;)
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Notice, that <code>create_report()</code> generates the separate file <code>DataExplorer_diamonds_report.html</code>.</p>
+<p>##Hmisc</p>
+<p>This package is created by Frank E Harrell Jr, with contributions from others. Below is showed one function from <code>Hmisc</code> package - <code>describe()</code>.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuSG1pc2M6OmRlc2NyaWJlKGFpcnF1YWxpdHkpXG5gYGAifQ== -->
+<pre class="r"><code>Hmisc::describe(airquality)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Similar results with some additional information could be presented as more user-friendly version.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaHRtbHRvb2xzOjpzYXZlX2h0bWwocHAsIGZpbGU9XCJIbWlzY19kZXNjcmliZV9haXJxdWFsaXR5Lmh0bWxcIilcblxuYGBgIn0= -->
+<pre class="r"><code>htmltools::save_html(pp, file=&quot;Hmisc_describe_airquality.html&quot;)
 </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Results are saved into the file <code>Hmisc_describe_airquality.html</code>.</p>
+<p>##dlookr</p>
+<p>This package belongs to the tidyverse universe. Here are presented function <code>eda_report()</code>. The dataset used for a presentation - diamonds.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Results are saved into the file <code>Hmisc_describe_airquality.html</code>.</p>
+<p>##Wrap up</p>
 <p>If you interested in more packages and their comparison, there are some references: - The Landscape of R Packages for Automated Exploratory Data Analysis by Mateusz Staniak and Przemysław Biecek - <a href="https://github.com/mstaniak/autoEDA-resources" class="uri">https://github.com/mstaniak/autoEDA-resources</a></p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNUQVQ2MDAgLSBBdXRvbWF0ZWQgRURBIGluIFIiDQpvdXRwdXQ6DQogIG91dHB1dDogcm1hcmtkb3duOjpnaXRodWJfZG9jdW1lbnQNCi0tLQ0KDQpBZnRlciBnZXR0aW5nIHNvbWUgbmV3IGRhdGFzZXQsIGRvaW5nIGEgcHJvcGVyIGV4cGxvcmF0b3J5IGRhdGEgYW5hbHlzaXMgKEVEQSkgaXMgdmVyeSBpbXBvcnRhbnQgcGFydC4gVGhpcyBoZWxwIHRvIGJldHRlciB1bmRlcnN0YW5kIHRoZSBzdHJ1Y3R1cmUgb2Ygb3VyIGRhdGEsIHBvdGVudGlhbCBwcm9ibGVtcyBhbmQgcHJvamVjdCB0aGUgc3RlcHMgbmVlZGVkIHRvIHVzZSB0aGUgcGFydGljdWxhciBkYXRhIHNldCBmb3IgbW9kZWxsaW5nLiANCg0KTW9zdCBvZiB0aGUgZGF0YSBhbmFseXN0cyB3b3VsZCBhZ3JlZSB0aGF0IGRhdGEgcHJlcGFyYXRpb24gKGNsZWFuaW5nLCBwdXR0aW5nIHRvIHRoZSBjb3JyZWN0IGZvcm1hdCkgYW5kIGV4cGxvcmF0aW9uIG9mIGEgZGF0YSBzZXQgdGFrZXMgYmlnIGNodW5rIG9mIHRoZSB0aW1lIGRldm90ZWQgdG8gdGhlIHByb2plY3QuIA0KDQooVW4pRm9ydHVuYXRlbHkgcGVvcGxlIGFyZSBsYXp5LCB0aHVzIHNvbWUgc3RhcnRlZCBkZXZlbG9waW5nIHNvbWUgd2F5cyBob3cgdG8gc3BlYWQgdXAgdGhlIEVEQSBwYXJ0LiANCg0KSGVyZSBJIHByZXNlbnQgNCBSIGxpYnJhcmllcyB0aGF0IGhhcyBzb21lIGZ1bmN0aW9ucyBmb3IgYXV0b21hdGljIEVEQSAtIGBEYXRhRXhwbG9yZXJgLCBgSG1pc2NgLCBgZGxvb2tyYCwgYGV4cGxvcmVgLg0KDQpgYGB7cix3YXJuaW5nID0gRkFMU0UsIHJlc3VsdHM9J2hpZGUnLG1lc3NhZ2U9RkFMU0V9DQpsaWJyYXJ5KCJEYXRhRXhwbG9yZXIiKQ0KbGlicmFyeSgiSG1pc2MiKQ0KbGlicmFyeSgiZGxvb2tyIikNCmxpYnJhcnkoImV4cGxvcmVSIikNCmBgYA0KDQpGb3IgZWFjaCBvZiB0aGUgcGFja2FnZSwgdGhlIGRhdGEgdXNlZCBjb21lcyBmcm9tIHN1Z2dlc3Rpb25zIG9mIHBhY2thZ2VzIGl0c2VsZi4gDQoNCiMjRGF0YUV4cGxvcmVyDQoNClRoaXMgcGFja2FnZSBpcyBjcmVhdGVkIGJ5IEJveHVhbiBDdWkuIEhlcmUgYXJlIHNob3dlZCB0aHJlZSBmdW5jdGlvbnMgZnJvbSBEYXRhRXhwbG9yZXIgcGFja2FnZSAtIGBpbnRyb2R1Y2UoKWAsIGBwbG90X2ludHJvKClgLCBhbmQgYGNyZWF0ZV9yZXBvcnQoKWAuIFRoZSBkYXRhc2V0cyB1c2VkIGZvciBhIHByZXNlbnRhdGlvbiAtIGFpcnF1YWxpdHkgYW5kIGRpYW1vbmRzLiANCg0KYGBge3J9DQpEYXRhRXhwbG9yZXI6OmludHJvZHVjZShhaXJxdWFsaXR5KQ0KYGBgDQoNCmBgYHtyLHdhcm5pbmcgPSBGQUxTRSwgcmVzdWx0cz0naGlkZScsbWVzc2FnZT1GQUxTRX0NCkRhdGFFeHBsb3Jlcjo6cGxvdF9pbnRybyhhaXJxdWFsaXR5KQ0KYGBgDQoNCmBgYHtyLCB3YXJuaW5nID0gRkFMU0UsIHJlc3VsdHM9J2hpZGUnLG1lc3NhZ2U9RkFMU0V9DQpEYXRhRXhwbG9yZXI6OmNyZWF0ZV9yZXBvcnQoZGlhbW9uZHMsIHk9InByaWNlIiwgb3V0cHV0X2ZpbGU9IkRhdGFFeHBsb3Jlcl9kaWFtb25kc19yZXBvcnQuaHRtbCIpDQpgYGANCg0KDQoNCklmIHlvdSBpbnRlcmVzdGVkIGluIG1vcmUgcGFja2FnZXMgYW5kIHRoZWlyIGNvbXBhcmlzb24sIHRoZXJlIGFyZSBzb21lIHJlZmVyZW5jZXM6DQogLSBUaGUgTGFuZHNjYXBlIG9mIFIgUGFja2FnZXMgZm9yIEF1dG9tYXRlZCBFeHBsb3JhdG9yeSBEYXRhIEFuYWx5c2lzIGJ5IE1hdGV1c3ogU3RhbmlhayBhbmQgUHJ6ZW15c8WCYXcgQmllY2VrDQogLSBodHRwczovL2dpdGh1Yi5jb20vbXN0YW5pYWsvYXV0b0VEQS1yZXNvdXJjZXMNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNUQVQ2MDAgLSBBdXRvbWF0ZWQgRURBIGluIFIiDQpvdXRwdXQ6DQogIG91dHB1dDogcm1hcmtkb3duOjpnaXRodWJfZG9jdW1lbnQNCi0tLQ0KDQoNCiMjSW50cm9kdWN0aW9uDQoNCkFmdGVyIGdldHRpbmcgc29tZSBuZXcgZGF0YXNldCwgZG9pbmcgYSBwcm9wZXIgZXhwbG9yYXRvcnkgZGF0YSBhbmFseXNpcyAoRURBKSBpcyBhIHZlcnkgaW1wb3J0YW50IHBhcnQuIFRoaXMgaGVscCB0byBiZXR0ZXIgdW5kZXJzdGFuZCB0aGUgc3RydWN0dXJlIG9mIG91ciBkYXRhLCBwb3RlbnRpYWwgcHJvYmxlbXMgYW5kIHByb2plY3QgdGhlIHN0ZXBzIG5lZWRlZCB0byB1c2UgdGhlIHBhcnRpY3VsYXIgZGF0YSBzZXQgZm9yIG1vZGVsbGluZy4gDQoNCk1vc3Qgb2YgdGhlIGRhdGEgYW5hbHlzdHMgd291bGQgYWdyZWUgdGhhdCBkYXRhIHByZXBhcmF0aW9uIChjbGVhbmluZywgcHV0dGluZyB0byB0aGUgY29ycmVjdCBmb3JtYXQpIGFuZCBleHBsb3JhdGlvbiBvZiBhIGRhdGEgc2V0IHRha2VzIGEgYmlnIGNodW5rIG9mIHRoZSB0aW1lIGRldm90ZWQgdG8gdGhlIHByb2plY3QuIA0KDQooVW4pRm9ydHVuYXRlbHksIHBlb3BsZSBhcmUgbGF6eSwgdGh1cyBzb21lIHN0YXJ0ZWQgZGV2ZWxvcGluZyBzb21lIHdheXMgaG93IHRvIHNwZWVkIHVwIHRoZSBFREEgcGFydC4gDQoNClRvZGF5IEkgd2lsbCBwcmVzZW50IHRocmVlIGBSYCBsaWJyYXJpZXMgZm9yIGF1dG9tYXRpYyBFREEgLSBgRGF0YUV4cGxvcmVyYCwgYEhtaXNjYCwgYGRsb29rcmAsIGBleHBsb3JlYC4NCg0KTm90aWNlIHRoYXQgdGhlcmUgYXJlIHdheSBtb3JlIGxpYnJhcmllcyBpbiB0aGUgZmllbGQgYW5kIGVhY2ggaXMgZG9pbmcgc29tZSBkaWZmZXJlbnQuIFJlZmVyZW5jZXMgZm9yIG1vcmUgbGlicmFyaWVzIGFyZSBnaXZlbiBpbiB0aGUgZW5kLiANCg0KYGBge3Isd2FybmluZyA9IEZBTFNFLCByZXN1bHRzPSdoaWRlJyxtZXNzYWdlPUZBTFNFfQ0KbGlicmFyeSgiRGF0YUV4cGxvcmVyIikNCmxpYnJhcnkoIkhtaXNjIikNCmxpYnJhcnkoImRsb29rciIpDQpgYGANCg0KRm9yIHByZXNlbnRhdGlvbiBvZiBmdW5jdGlvbiBJIHVzZWQgdHdvIHZlcnkgcG9wdWxhciBkYXRhIHNldHMgLSBhaXJxdWFsaXR5IGFuZCBkaWFtb25zLiANCg0KDQojI0RhdGFFeHBsb3Jlcg0KDQpUaGlzIHBhY2thZ2UgaXMgY3JlYXRlZCBieSBCb3h1YW4gQ3VpLiBCZWxvdyBhcmUgcHJlc2VudGVkIHRocmVlIGZ1bmN0aW9ucyBmcm9tIERhdGFFeHBsb3JlciBwYWNrYWdlIC0gYGludHJvZHVjZSgpYCwgYHBsb3RfaW50cm8oKWAsIGFuZCBgY3JlYXRlX3JlcG9ydCgpYC4gIA0KDQpgYGB7cn0NCkRhdGFFeHBsb3Jlcjo6aW50cm9kdWNlKGFpcnF1YWxpdHkpDQpgYGANCg0KYGBge3Isd2FybmluZyA9IEZBTFNFLCByZXN1bHRzPSdoaWRlJyxtZXNzYWdlPUZBTFNFfQ0KRGF0YUV4cGxvcmVyOjpwbG90X2ludHJvKGFpcnF1YWxpdHkpDQpgYGANCg0KYGBge3IsIHdhcm5pbmcgPSBGQUxTRSwgcmVzdWx0cz0naGlkZScsbWVzc2FnZT1GQUxTRX0NCkRhdGFFeHBsb3Jlcjo6Y3JlYXRlX3JlcG9ydChkaWFtb25kcywgeT0icHJpY2UiLCBvdXRwdXRfZmlsZT0iRGF0YUV4cGxvcmVyX2RpYW1vbmRzX3JlcG9ydC5odG1sIikNCmBgYA0KDQpOb3RpY2UsIHRoYXQgYGNyZWF0ZV9yZXBvcnQoKWAgZ2VuZXJhdGVzIHRoZSBzZXBhcmF0ZSBmaWxlIGBEYXRhRXhwbG9yZXJfZGlhbW9uZHNfcmVwb3J0Lmh0bWxgLiANCg0KIyNIbWlzYw0KDQpUaGlzIHBhY2thZ2UgaXMgY3JlYXRlZCBieSBGcmFuayBFIEhhcnJlbGwgSnIsIHdpdGggY29udHJpYnV0aW9ucyBmcm9tIG90aGVycy4gQmVsb3cgaXMgc2hvd2VkIG9uZSBmdW5jdGlvbiBmcm9tIGBIbWlzY2AgcGFja2FnZSAtIGBkZXNjcmliZSgpYC4NCg0KYGBge3J9DQpIbWlzYzo6ZGVzY3JpYmUoYWlycXVhbGl0eSkNCmBgYA0KDQpTaW1pbGFyIHJlc3VsdHMgd2l0aCBzb21lIGFkZGl0aW9uYWwgaW5mb3JtYXRpb24gY291bGQgYmUgcHJlc2VudGVkIGFzIG1vcmUgdXNlci1mcmllbmRseSB2ZXJzaW9uLiANCg0KYGBge3IsIHdhcm5pbmcgPSBGQUxTRSwgcmVzdWx0cz0naGlkZScsbWVzc2FnZT1GQUxTRX0NCnAgPC0gSG1pc2M6OmRlc2NyaWJlKGFpcnF1YWxpdHkpDQpwcCA8LSBIbWlzYzo6aHRtbChwKQ0KaHRtbHRvb2xzOjpzYXZlX2h0bWwocHAsIGZpbGU9IkhtaXNjX2Rlc2NyaWJlX2FpcnF1YWxpdHkuaHRtbCIpDQpgYGANCg0KUmVzdWx0cyBhcmUgc2F2ZWQgaW50byB0aGUgZmlsZSBgSG1pc2NfZGVzY3JpYmVfYWlycXVhbGl0eS5odG1sYC4gDQoNCiMjZGxvb2tyDQoNClRoaXMgcGFja2FnZSBiZWxvbmdzIHRvIHRoZSB0aWR5dmVyc2UgdW5pdmVyc2UuIEhlcmUgYXJlIHByZXNlbnRlZCBmdW5jdGlvbiBgZWRhX3JlcG9ydCgpYC4gVGhlIGRhdGFzZXQgdXNlZCBmb3IgYSBwcmVzZW50YXRpb24gLSBkaWFtb25kcy4NCg0KDQpgYGB7cix3YXJuaW5nID0gRkFMU0UsIHJlc3VsdHM9J2hpZGUnLG1lc3NhZ2U9RkFMU0V9DQpkbG9va3I6OmVkYV9yZXBvcnQoZGlhbW9uZHMsIG91dHB1dF9mb3JtYXQ9Imh0bWwiLA0KICAgICAgICAgICAgICAgICAgIHRhcmdldD0icHJpY2UiLCBvdXRwdXRfZmlsZT0iZGxvb2tyX2VkYV9yZXBvcnRfZGlhbW9uZHMuaHRtbCIpDQpgYGANCg0KUmVzdWx0cyBhcmUgc2F2ZWQgaW50byB0aGUgZmlsZSBgSG1pc2NfZGVzY3JpYmVfYWlycXVhbGl0eS5odG1sYC4gDQoNCg0KIyNXcmFwIHVwDQoNCklmIHlvdSBpbnRlcmVzdGVkIGluIG1vcmUgcGFja2FnZXMgYW5kIHRoZWlyIGNvbXBhcmlzb24sIHRoZXJlIGFyZSBzb21lIHJlZmVyZW5jZXM6DQogLSBUaGUgTGFuZHNjYXBlIG9mIFIgUGFja2FnZXMgZm9yIEF1dG9tYXRlZCBFeHBsb3JhdG9yeSBEYXRhIEFuYWx5c2lzIGJ5IE1hdGV1c3ogU3RhbmlhayBhbmQgUHJ6ZW15c8WCYXcgQmllY2VrDQogLSBodHRwczovL2dpdGh1Yi5jb20vbXN0YW5pYWsvYXV0b0VEQS1yZXNvdXJjZXMNCg==</div>
 
 
 
