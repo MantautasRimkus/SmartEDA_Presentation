@@ -1,12 +1,10 @@
 ---
 title: "STAT600 - Automated EDA in R"
 output:
-  html_document:
-    df_print: paged
-  pdf_document: default
+  output: rmarkdown::github_document
 ---
 
-After getting some new dataset, doing a proper exploratory data analysis (EDA) is very important part. This help to better undestand the structure of our data, potential problems and project the steps needed to use the particular data set for modelling. 
+After getting some new dataset, doing a proper exploratory data analysis (EDA) is very important part. This help to better understand the structure of our data, potential problems and project the steps needed to use the particular data set for modelling. 
 
 Most of the data analysts would agree that data preparation (cleaning, putting to the correct format) and exploration of a data set takes big chunk of the time devoted to the project. 
 
@@ -14,7 +12,7 @@ Most of the data analysts would agree that data preparation (cleaning, putting t
 
 Here I present 4 R libraries that has some functions for automatic EDA - `DataExplorer`, `Hmisc`, `dlookr`, `explore`.
 
-```{r}
+```{r,warning = FALSE, results='hide',message=FALSE}
 library("DataExplorer")
 library("Hmisc")
 library("dlookr")
@@ -36,7 +34,7 @@ DataExplorer::plot_intro(airquality)
 ```
 
 ```{r, warning = FALSE, results='hide',message=FALSE}
-DataExplorer::create_report(diamonds, y="price")
+DataExplorer::create_report(diamonds, y="price", output_file="DataExplorer_diamonds_report.html")
 ```
 
 
