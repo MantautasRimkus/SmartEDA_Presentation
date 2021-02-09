@@ -156,4 +156,5 @@ references:
     Data Analysis by Mateusz Staniak and Przemysław Biecek. M
 
   - Collection of smart EDA packages:
-    <https://github.com/mstaniak/autoEDA-resources>
+    <https://github.com/mstaniak/autoEDA-resources>. Feel free checking
+    those and finding the one that fits you.

@@ -82,4 +82,4 @@ If you interested in more packages and their comparison, there are some referenc
  
  * Overview - The Landscape of R Packages for Automated Exploratory Data Analysis by Mateusz Staniak and Przemysław Biecek. M
  
- * Collection of smart EDA packages: https://github.com/mstaniak/autoEDA-resources
+ * Collection of smart EDA packages: https://github.com/mstaniak/autoEDA-resources. Feel free checking those and finding the one that fits you.
