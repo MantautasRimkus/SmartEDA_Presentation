@@ -128,8 +128,7 @@ more user-friendly version.
 
 ``` r
 p <- Hmisc::describe(airquality)
-pp <- Hmisc::html(p)
-htmltools::save_html(pp, file="Hmisc_describe_airquality.html")
+htmltools::save_html(Hmisc::html(p), file="Hmisc_describe_airquality.html")
 ```
 
 Results are saved into the file `Hmisc_describe_airquality.html`.
@@ -146,12 +145,15 @@ dlookr::eda_report(diamonds, output_format="html",
                    output_dir=getwd())
 ```
 
-Results are saved into the file `Hmisc_describe_airquality.html`.
+Results are saved into the file `dlookr_eda_report_diamonds.html`.
 
 ## Wrap up
 
 If you interested in more packages and their comparison, there are some
-references: \* Overview - The Landscape of R Packages for Automated
-Exploratory Data Analysis by Mateusz Staniak and Przemysław Biecek. M \*
-Collection of smart EDA packages:
-<https://github.com/mstaniak/autoEDA-resources>
+references:
+
+  - Overview - The Landscape of R Packages for Automated Exploratory
+    Data Analysis by Mateusz Staniak and Przemysław Biecek. M
+
+  - Collection of smart EDA packages:
+    <https://github.com/mstaniak/autoEDA-resources>
