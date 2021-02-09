@@ -6,7 +6,7 @@ STAT600 - Automated EDA in R
 After acquiring some new data, doing a proper exploratory data analysis
 (EDA) is a very important part. This help to better understand the
 structure of our data, potential problems and project the steps needed
-to use the particular data set for modelling.
+to use the particular data set for modeling.
 
 Most of the data analysts would agree that data preparation (cleaning,
 putting to the correct format) and exploration of a data set takes a big
@@ -141,7 +141,9 @@ function `eda_report()`.
 
 ``` r
 dlookr::eda_report(diamonds, output_format="html",
-                   target="price", output_file="dlookr_eda_report_diamonds.html")
+                   target="price", 
+                   output_file="dlookr_eda_report_diamonds.html",
+                   output_dir=getwd())
 ```
 
 Results are saved into the file `Hmisc_describe_airquality.html`.
@@ -149,6 +151,7 @@ Results are saved into the file `Hmisc_describe_airquality.html`.
 ## Wrap up
 
 If you interested in more packages and their comparison, there are some
-references: - The Landscape of R Packages for Automated Exploratory Data
-Analysis by Mateusz Staniak and Przemysław Biecek -
+references: \* Overview - The Landscape of R Packages for Automated
+Exploratory Data Analysis by Mateusz Staniak and Przemysław Biecek. M \*
+Collection of smart EDA packages:
 <https://github.com/mstaniak/autoEDA-resources>
